@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'package:just_widgets/just_text_field.dart';
 import 'package:just_widgets/just_widgets.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
+    _showToast();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -54,9 +56,13 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: JustTextField(labelText: "Value", hintText: "Enter value"),
         ),
       ),
     );
+  }
+
+  _showToast() {
+    JustWidgets.showToast(message: "hello");
   }
 }
